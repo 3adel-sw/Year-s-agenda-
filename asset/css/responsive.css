@@ -1,3 +1,6 @@
 .h-100vh {
-  height: 125vh;
+  height: 120vh;
+}
+.cursor {
+  cursor: pointer;
 }
