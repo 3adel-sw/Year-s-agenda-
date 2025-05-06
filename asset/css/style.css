@@ -120,3 +120,25 @@ li.active {
   border-radius: 50%;
 }
 /* End Navbar  */
+/* Start Clock */
+.clock-box {
+  background: rgb(255 255 255 / 0%);
+  /* backdrop-filter: blur(5px); */
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  color: white;
+  transform: translate(0px, 545px);
+}
+
+.clock-time {
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.clock-date {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+/* End Clock */
