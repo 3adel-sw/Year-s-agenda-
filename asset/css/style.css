@@ -129,7 +129,7 @@ li.active {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   text-align: center;
   color: white;
-  transform: translate(0px, 545px);
+  transform: translate(0px, 500px);
 }
 
 .clock-time {
