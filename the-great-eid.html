@@ -78,7 +78,8 @@
   <div class="clock-box">
     <div class="clock-time" id="clock">--:--:--</div>
     <div class="clock-date" id="date">-- -- ----</div>
-    <div class="countdown" id="countdown">جارٍ حساب الوقت المتبقي حتى العيد...</div>
+    <div class="countdown" id="countdown-eid">جارٍ حساب الوقت المتبقي حتى العيد...</div>
+    <audio id="eid-sound" src="asset/sound/2.mp3"></audio>
   </div>
 
     <!-- Fills Js -->
@@ -88,53 +89,31 @@
     <!-- Fills Bootstrap  -->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
 <script>
-  function updateClock() {
-    const now = new Date();
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    const seconds = String(now.getSeconds()).padStart(2, '0');
-    const time = `${hours}:${minutes}:${seconds}`;
+  document.addEventListener("DOMContentLoaded", function () {
+    //     
+    setTimeout(() => {
+      const audio = document.getElementById("eid-sound");
+      if (audio) {
+        audio.play().catch((error) => {
+          console.error("Failed to play audio:", error);
+        });
+      }
+    }, 1000);
 
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const date = now.toLocaleDateString('ar-EG', options);
-
-    document.getElementById('clock').textContent = time;
-    document.getElementById('date').textContent = date;
-  }
-
-  let celebrated = false;
-
-  function updateCountdown() {
-    const now = new Date();
-    const eidDate = new Date("2025-06-06T00:00:00");
-    const diff = eidDate - now;
-    const element = document.getElementById("countdown");
-
-    if (diff <= 0 && !celebrated) {
-      element.textContent = "🎉 عيد الأضحى قد حل! كل عام وأنتم بخير!";
-      element.classList.add("celebrate");
-      document.getElementById("celebrate-sound").play();
-      celebrated = true;
-      return;
-    }
-
-    if (diff > 0) {
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-      element.textContent = ` باقي علي العيد الكبير ان شاء الله:     ${days} يوم، ${hours} ساعة، ${minutes} دقيقة، ${seconds} ثانية`;
-    }
-  }
-
-  setInterval(() => {
-    updateClock();
-    updateCountdown();
-  }, 1000);
-
-  updateClock();
-  updateCountdown();
+    //      
+    document.addEventListener("click", function () {
+      const audio = document.getElementById("eid-sound");
+      if (audio && !audio.paused) {
+        audio.pause();
+        audio.currentTime = 0; //    
+      }
+    });
+  });
 </script>
+
+
   </body>
 </html>
