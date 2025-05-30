@@ -45,15 +45,15 @@ function updateCountdown(targetDate, message, elementId) {
   }
 }
 
-// إعداد التواريخ والرسائل
+
 const countdowns = [
   {
-    date: new Date("2025-11-01T00:00:00"),
+    date: new Date("2025-10-10T00:00:00"),
     message: "💍 تم عقد الزواج! ألف مبروك!",
     elementId: "countdown-wedding",
   },
   {
-    date: new Date("2025-09-10T00:00:00"),
+    date: new Date("2025-09-25T00:00:00"),
     message: "💍 تم عقد القران! ألف مبروك!",
     elementId: "countdown-contract",
   },
