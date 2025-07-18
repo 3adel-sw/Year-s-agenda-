@@ -1,6 +1,5 @@
 let celebrated = false;
 
-// تحديث الساعة
 function updateClock() {
   const now = new Date();
   const hours = String(now.getHours()).padStart(2, "0");
@@ -20,7 +19,6 @@ function updateClock() {
   $("#date").text(date);
 }
 
-// تحديث العد التنازلي
 function updateCountdown(targetDate, message, elementId) {
   const now = new Date();
   const diff = targetDate - now;
@@ -45,15 +43,19 @@ function updateCountdown(targetDate, message, elementId) {
   }
 }
 
-
 const countdowns = [
   {
-    date: new Date("2025-10-10T00:00:00"),
+    date: new Date("2025-09-05T00:00:00"),
+    message: "تيمبليكس",
+    elementId: "countdown-championship",
+  },
+  {
+    date: new Date("2025-10-16T00:00:00"),
     message: "💍 تم عقد الزواج! ألف مبروك!",
     elementId: "countdown-wedding",
   },
   {
-    date: new Date("2025-09-25T00:00:00"),
+    date: new Date("2025-09-19T00:00:00"),
     message: "💍 تم عقد القران! ألف مبروك!",
     elementId: "countdown-contract",
   },
@@ -82,3 +84,9 @@ $(document).ready(() => {
   updateClock();
   updateAllCountdowns();
 });
+
+// play
+setInterval(() => {
+  updateClock();
+  updateAllCountdowns();
+}, 1000);
