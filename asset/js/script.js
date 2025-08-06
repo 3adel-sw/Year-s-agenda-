@@ -55,7 +55,7 @@ const countdowns = [
     elementId: "countdown-wedding",
   },
   {
-    date: new Date("2025-09-19T00:00:00"),
+    date: new Date("2025-08-22T00:00:00"),
     message: "💍 تم عقد القران! ألف مبروك!",
     elementId: "countdown-contract",
   },
@@ -90,3 +90,4 @@ setInterval(() => {
   updateClock();
   updateAllCountdowns();
 }, 1000);
+
